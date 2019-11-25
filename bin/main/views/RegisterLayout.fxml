@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" styleClass="register_main" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.RegisterController">
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="register_left" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="400.0" AnchorPane.topAnchor="0.0" />
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="register_right" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="400.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label fx:id="mainLbl" layoutX="39.0" layoutY="109.0" prefHeight="32.0" prefWidth="292.0" styleClass="register_main_txt" text="Registration Info">
+               <font>
+                  <Font name="System Bold" size="40.0" />
+               </font>
+            </Label>
+            <TextField fx:id="idInput" layoutX="39.0" layoutY="189.0" prefHeight="40.0" prefWidth="300.0" promptText="ID" styleClass="register_input" />
+            <TextField fx:id="nameInput" layoutX="39.0" layoutY="250.0" prefHeight="40.0" prefWidth="300.0" promptText="Name" styleClass="register_input" />
+            <PasswordField fx:id="pwdInput1" layoutX="39.0" layoutY="313.0" prefHeight="40.0" prefWidth="300.0" promptText="Password" styleClass="register_input" />
+            <PasswordField fx:id="pwdInput2" layoutX="39.0" layoutY="372.0" prefHeight="40.0" prefWidth="300.0" promptText="Password Check" styleClass="register_input" />
+            <Button layoutX="39.0" layoutY="449.0" mnemonicParsing="false" onAction="#registerProcess" prefHeight="40.0" prefWidth="140.0" text="Submit">
+               <styleClass>
+                  <String fx:value="register_btn" />
+                  <String fx:value="register_submit_btn" />
+               </styleClass>
+            </Button>
+            <Button layoutX="200.0" layoutY="449.0" mnemonicParsing="false" onAction="#close" prefHeight="40.0" prefWidth="140.0" text="Cancel">
+               <styleClass>
+                  <String fx:value="register_btn" />
+                  <String fx:value="register_cancel_btn" />
+               </styleClass>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

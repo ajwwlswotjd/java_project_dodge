@@ -1,0 +1,65 @@
+* {
+	-fx-font-family : "Maplestory";
+}
+
+.bg_login {
+	-fx-background-image : url("/imgs/bg_login.png");	
+}
+
+.login_btn {
+	-fx-background-color : transparent;
+	-fx-cursor: hand;
+}
+
+.login_btn:hover {
+	-fx-background-color : #fff2;
+}
+
+.login_input {
+	-fx-background-color : transparent;
+	-fx-border : none;
+	-fx-text-fill : #ffff;
+}
+.register_main {
+	-fx-background-color : #fff;	
+}
+
+.register_main_txt {
+	-fx-font-size : 30px;
+	-fx-text-fill : #fff;
+	-fx-font-weight : lighter;
+}
+
+.register_left {
+	-fx-background-color : #000;
+	-fx-background-image : url("/imgs/bg_b.png");
+	-fx-background-size : 100% 100%;
+}
+
+.register_right {
+	-fx-background-color : #000;
+}
+
+.register_input {
+	-fx-border-color: #f4f5f9;
+	-fx-border-width : 0 0 1px 0;
+	-fx-background-color : #fff0;
+	-fx-text-fill : #f4f5f9;
+	-fx-font-size : 13px;
+}
+
+.register_btn {
+	-fx-border-radius : 20px;
+	-fx-background-radius : 20px;
+	-fx-background-color : #000;
+	-fx-border-width : 2px;
+	-fx-border-color : #f4f5f9;
+	-fx-font-size : 14px;
+	-fx-cursor : hand;
+	-fx-text-fill : #f4f5f9;
+}
+
+.register_btn:hover {
+	-fx-background-color : #333;
+}
+
