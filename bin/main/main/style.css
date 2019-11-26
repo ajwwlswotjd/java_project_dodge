@@ -63,3 +63,48 @@
 	-fx-background-color : #333;
 }
 
+.main_main_background {
+	-fx-background-image : url("/imgs/bg_main.jpg");
+	-fx-background-size : 100% 100%;
+}
+
+.main_main_label {
+	-fx-effect: dropshadow(three-pass-box,#333030,6,5,0,0);
+	-fx-font-weight : 700;
+	-fx-text-fill : #fff;
+}
+
+.main_label_copyright {
+	-fx-font-size : 15px;
+	-fx-text-fill : #fff;
+}
+
+.main_btn {
+	-fx-background-radius : 5px;
+	-fx-background-color : #f4f5f9;
+	-fx-text-fill : #333030;
+	-fx-box-sizing : content-box;
+	-fx-font-size : 25px;
+	-fx-font-weight : 700;
+	-fx-border-width : 4px;
+	-fx-border-radius : 5px;
+	-fx-border-color : #333030;	
+	-fx-cursor : hand;
+}
+
+.main_btn:hover {
+	-fx-background-color : #eee;
+}
+
+.main_user_label {
+	-fx-effect: dropshadow(three-pass-box,#333030,2,3,0,0);
+	-fx-font-size : 20px;
+	-fx-font-weight : 700;
+	-fx-text-fill : #f4f5f9;	
+}
+
+
+
+
+
+

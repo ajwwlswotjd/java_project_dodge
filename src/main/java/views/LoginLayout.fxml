@@ -8,7 +8,7 @@
 
 <AnchorPane fx:id="root" prefHeight="600.0" prefWidth="800.0" styleClass="bg_login" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.LoginController">
    <children>
-      <Button fx:id="loginBtn" layoutX="600.0" layoutY="239.0" mnemonicParsing="false" onAction="#loginPrcoess" prefHeight="35.0" prefWidth="75.0">
+      <Button fx:id="loginBtn" layoutX="600.0" layoutY="239.0" mnemonicParsing="false" onAction="#loginProcess" prefHeight="35.0" prefWidth="75.0">
          <styleClass>
             <String fx:value="btn_login" />
             <String fx:value="login_btn" />
@@ -44,7 +44,7 @@
             <String fx:value="btn_find_pwd" />
          </styleClass>
       </Button>
-      <TextField fx:id="idInput" layoutX="441.0" layoutY="233.0" prefHeight="23.0" prefWidth="145.0" styleClass="login_input" />
-      <PasswordField fx:id="pwdInput" layoutX="441.0" layoutY="264.0" prefHeight="15.0" prefWidth="145.0" styleClass="login_input" />
+      <TextField fx:id="idInput" layoutX="441.0" layoutY="233.0" prefHeight="23.0" prefWidth="145.0" styleClass="login_input" text="admin" />
+      <PasswordField fx:id="pwdInput" layoutX="441.0" layoutY="264.0" prefHeight="15.0" prefWidth="145.0" styleClass="login_input" text="1234" />
    </children>
 </AnchorPane>

@@ -3,6 +3,7 @@ package main;
 import java.util.HashMap;
 import java.util.Map;
 
+import domain.UserVO;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -22,7 +23,7 @@ import views.MasterController;
 import views.RegisterController;
 
 public class MainApp extends Application {
-	// 배경음악 넣다가 말았음. 집가서 인터넷에서 검색하기
+	// 코딩 편의상 처음 로그인 부분을 스킵하였음. 제출시 수정 해야함. 저번처럼 까먹을수도 있음 (LoginController)
 	public static MainApp app;
 	private StackPane mainPage;
 	private Map<String, MasterController> controllerMap = new HashMap<>();
@@ -112,9 +113,14 @@ public class MainApp extends Application {
 	}
 
 	public void loadPane(String name) {
-		MasterController c = controllerMap.get(name); // ������ ��Ʈ�ѷ��� �ʿ��� ������.
+		MasterController c = controllerMap.get(name);
 		Pane pane = c.getRoot();
 		mainPage.getChildren().add(pane);
+	}
+	
+	public void setLoginInfo(UserVO user) {
+		MainController mc = (MainController)this.controllerMap.get("main");
+		mc.setLoginInfo(user);
 	}
 
 	public void slideIn(String name) {

@@ -3,7 +3,7 @@ package domain;
 public class UserVO {
 	private String id;
 	private String name;
-	
+	private int max_score;
 	public String getId() {
 		return id;
 	}
@@ -15,5 +15,11 @@ public class UserVO {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	public int getLevel() {
+		return this.max_score;
+	}
+	public void setLevel(int max_score) {
+		this.max_score = max_score;
 	}
 }

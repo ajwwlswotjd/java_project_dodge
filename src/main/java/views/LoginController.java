@@ -32,22 +32,22 @@ public class LoginController extends MasterController {
 	MediaPlayer mp;
 	@FXML private void initialize() {
 		System.out.println("LoginController init");
-		this.startLoginMusic();
+		this.startMusic("login.mp3");
 	}
 	
-	private void startLoginMusic() {
-		String soundFile = "login.mp3";
+	private void startMusic(String soundFile) {
 		Media md = new Media(Paths.get(soundFile).toUri().toString());
 		this.mp = new MediaPlayer(md);
 		this.mp.setAutoPlay(true);
 		this.mp.setCycleCount((int)Double.POSITIVE_INFINITY);
-		this.mp.setVolume(0.5);
+		this.mp.setVolume(0.4);
 	}
-	private void stopLoginMusic() {
+	
+	private void stopMusic() {
 		this.mp.stop();
 	}
 	
-	@FXML private void loginPrcoess() {
+	@FXML private void loginProcess() {
 		String id = this.idInput.getText().trim();
 		String pwd = this.pwdInput.getText().trim();
 		if(id.isEmpty() || pwd.isEmpty()) {
@@ -57,8 +57,12 @@ public class LoginController extends MasterController {
 		
 		UserVO user = this.checkLogin(id, pwd);
 		if(user!=null) {
-			MainApp.app.slideOut(root);
-			this.stopLoginMusic();
+			this.stopMusic();
+			MainApp.app.setLoginInfo(user);
+			MainApp.app.slideOut(getRoot());
+			this.idInput.setText("");
+			this.pwdInput.setText("");
+			this.startMusic("main.mp3");
 		}else {
 			Util.showAlert("로그인 실패","존재하지 않는 아이디이거나 비밀번호가 맞지 않습니다.",AlertType.ERROR);
 			return;
@@ -102,6 +106,7 @@ public class LoginController extends MasterController {
 				UserVO user = new UserVO();
 				user.setId(rs.getString("id").toString());
 				user.setName(rs.getString("name").toString());
+				user.setLevel(rs.getInt("max_score"));
 				return user;
 			}
 			return null;
