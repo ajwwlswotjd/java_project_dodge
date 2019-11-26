@@ -11,12 +11,14 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import views.GameController;
 import views.LoginController;
 import views.MainController;
 import views.MasterController;
@@ -24,9 +26,11 @@ import views.RegisterController;
 
 public class MainApp extends Application {
 	// 코딩 편의상 처음 로그인 부분을 스킵하였음. 제출시 수정 해야함. 저번처럼 까먹을수도 있음 (LoginController)
+	// 
 	public static MainApp app;
+	public Game game = null;
 	private StackPane mainPage;
-	private Map<String, MasterController> controllerMap = new HashMap<>();
+	public Map<String, MasterController> controllerMap = new HashMap<>();
 
 	@Override
 	public void start(Stage primaryStage) {
@@ -39,6 +43,13 @@ public class MainApp extends Application {
 			MainController mc = mainLoader.getController();
 			mc.setRoot(mainPage);
 			this.controllerMap.put("main",mc);
+			
+			FXMLLoader gameLoader = new FXMLLoader();
+			gameLoader.setLocation(getClass().getResource("/views/GameLayout.fxml"));
+			AnchorPane gamePage = gameLoader.load();
+			GameController gc = gameLoader.getController();
+			gc.setRoot(gamePage);
+			this.controllerMap.put("game",gc);
 
 			FXMLLoader loginLoader = new FXMLLoader();
 			loginLoader.setLocation(getClass().getResource("/views/LoginLayout.fxml"));
@@ -55,6 +66,9 @@ public class MainApp extends Application {
 			this.controllerMap.put("register", rc);
 
 			Scene scene = new Scene(mainPage);
+			scene.addEventFilter(KeyEvent.KEY_PRESSED,e->{
+				if(game!=null) this.game.keyHandler(e);
+			});
 			mainPage.getChildren().add(loginPage);
 
 			Font.loadFont(getClass().getResourceAsStream("/imgs/Maplestory Bold.ttf"), 14);
@@ -99,7 +113,7 @@ public class MainApp extends Application {
 	}
 
 	public void fadeIn(String name) {
-		MasterController c = controllerMap.get(name); // ������ ��Ʈ�ѷ��� �ʿ��� ������.
+		MasterController c = controllerMap.get(name);
 		Pane pane = c.getRoot();
 		mainPage.getChildren().add(pane);
 

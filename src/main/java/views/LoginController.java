@@ -29,13 +29,13 @@ public class LoginController extends MasterController {
 	@FXML private TextField idInput;
 	@FXML private PasswordField pwdInput;
 	@FXML private AnchorPane root;
-	MediaPlayer mp;
+	private MediaPlayer mp;
 	@FXML private void initialize() {
 		System.out.println("LoginController init");
 		this.startMusic("login.mp3");
 	}
 	
-	private void startMusic(String soundFile) {
+	public void startMusic(String soundFile) {
 		Media md = new Media(Paths.get(soundFile).toUri().toString());
 		this.mp = new MediaPlayer(md);
 		this.mp.setAutoPlay(true);
@@ -43,7 +43,7 @@ public class LoginController extends MasterController {
 		this.mp.setVolume(0.4);
 	}
 	
-	private void stopMusic() {
+	public void stopMusic() {
 		this.mp.stop();
 	}
 	

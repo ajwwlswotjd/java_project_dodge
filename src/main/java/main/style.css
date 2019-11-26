@@ -100,10 +100,12 @@
 	-fx-effect: dropshadow(three-pass-box,#333030,2,3,0,0);
 	-fx-font-size : 20px;
 	-fx-font-weight : 700;
-	-fx-text-fill : #f4f5f9;	
+	-fx-text-fill : #f4f5f9;
 }
 
-
+.game_background {
+	-fx-background-color : #000;
+}
 
 
 

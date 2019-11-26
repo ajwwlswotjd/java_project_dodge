@@ -12,15 +12,17 @@ public class MainController extends MasterController {
 		System.out.println("MainController init");
 	}
 	
-	public void setLoginInfo(UserVO user) {
+	@FXML public void setLoginInfo(UserVO user) {
 		// 메인레이아웃에서 로그인 정보 표시할떄 사용
 		this.user = user;
 		this.userLbl.setText(this.user.getName()+"("+this.user.getId()+") 님 반갑습니다.");
 	}
 	
 	@FXML private void logout() {
-		System.out.println("로그아웃 누름");
 		MainApp.app.slideIn("login");
+		LoginController lc = (LoginController)MainApp.app.controllerMap.get("login");
+		lc.stopMusic();
+		lc.startMusic("login.mp3");
 	}
 	
 	@FXML private void showRank() {
@@ -28,7 +30,8 @@ public class MainController extends MasterController {
 	}
 	
 	@FXML private void startGame() {
-		
+		GameController gc = (GameController)MainApp.app.controllerMap.get("game");
+		gc.startGame();
 	}
 	
 }
