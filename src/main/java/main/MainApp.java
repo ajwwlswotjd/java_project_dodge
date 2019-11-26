@@ -17,6 +17,7 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import views.LoginController;
+import views.MainController;
 import views.MasterController;
 import views.RegisterController;
 
@@ -33,6 +34,10 @@ public class MainApp extends Application {
 			FXMLLoader mainLoader = new FXMLLoader();
 			mainLoader.setLocation(getClass().getResource("/views/MainLayout.fxml"));
 			this.mainPage = mainLoader.load();
+			
+			MainController mc = mainLoader.getController();
+			mc.setRoot(mainPage);
+			this.controllerMap.put("main",mc);
 
 			FXMLLoader loginLoader = new FXMLLoader();
 			loginLoader.setLocation(getClass().getResource("/views/LoginLayout.fxml"));

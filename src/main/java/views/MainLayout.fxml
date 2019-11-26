@@ -3,7 +3,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.StackPane?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.MainController">
    <children>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" />
    </children>

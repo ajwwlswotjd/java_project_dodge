@@ -3,9 +3,12 @@ package views;
 import java.awt.Desktop;
 import java.io.File;
 import java.net.URI;
+import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+
+import javax.crypto.AEADBadTagException;
 
 import domain.UserVO;
 import javafx.fxml.FXML;
@@ -26,14 +29,22 @@ public class LoginController extends MasterController {
 	@FXML private TextField idInput;
 	@FXML private PasswordField pwdInput;
 	@FXML private AnchorPane root;
-	
+	MediaPlayer mp;
 	@FXML private void initialize() {
 		System.out.println("LoginController init");
-		String musicFile = "login.mp3";
-		Media sound = new Media(new File(musicFile).toURI().toString());
-		MediaPlayer mediaPlayer = new MediaPlayer(sound);
-//		mediaPlayer.play();
-		mediaPlayer.setAutoPlay(true);
+		this.startLoginMusic();
+	}
+	
+	private void startLoginMusic() {
+		String soundFile = "login.mp3";
+		Media md = new Media(Paths.get(soundFile).toUri().toString());
+		this.mp = new MediaPlayer(md);
+		this.mp.setAutoPlay(true);
+		this.mp.setCycleCount((int)Double.POSITIVE_INFINITY);
+		this.mp.setVolume(0.5);
+	}
+	private void stopLoginMusic() {
+		this.mp.stop();
 	}
 	
 	@FXML private void loginPrcoess() {
@@ -47,6 +58,7 @@ public class LoginController extends MasterController {
 		UserVO user = this.checkLogin(id, pwd);
 		if(user!=null) {
 			MainApp.app.slideOut(root);
+			this.stopLoginMusic();
 		}else {
 			Util.showAlert("로그인 실패","존재하지 않는 아이디이거나 비밀번호가 맞지 않습니다.",AlertType.ERROR);
 			return;
