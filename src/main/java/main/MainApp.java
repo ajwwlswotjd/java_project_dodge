@@ -26,7 +26,7 @@ import views.RegisterController;
 
 public class MainApp extends Application {
 	// 코딩 편의상 처음 로그인 부분을 스킵하였음. 제출시 수정 해야함. 저번처럼 까먹을수도 있음 (LoginController)
-	// 
+	// 곤달님 솔루션 => 렌더링 과정에서 키 검사 하기
 	public static MainApp app;
 	public Game game = null;
 	private StackPane mainPage;
@@ -76,7 +76,11 @@ public class MainApp extends Application {
 			primaryStage.setTitle("10122 정재성 닷지게임 (메이플스토리 Ver)");
 			primaryStage.getIcons().add(new Image("/imgs/ico.png"));
 			primaryStage.setScene(scene);
-			primaryStage.setResizable(false);
+			primaryStage.setMaxHeight(600);
+			primaryStage.setMaxWidth(800);
+			primaryStage.setMinHeight(600);
+			primaryStage.setMinWidth(800);
+//			primaryStage.setResizable(false);
 			scene.getStylesheets().add(getClass().getResource("./style.css").toExternalForm());
 			primaryStage.show();
 		} catch (Exception e) {
