@@ -16,10 +16,10 @@ public class UserVO {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getLevel() {
+	public int getMaxScore() {
 		return this.max_score;
 	}
-	public void setLevel(int max_score) {
+	public void setMaxScore(int max_score) {
 		this.max_score = max_score;
 	}
 }

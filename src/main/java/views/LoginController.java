@@ -1,14 +1,11 @@
 package views;
 
 import java.awt.Desktop;
-import java.io.File;
 import java.net.URI;
 import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-
-import javax.crypto.AEADBadTagException;
 
 import domain.UserVO;
 import javafx.fxml.FXML;
@@ -16,6 +13,8 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -30,9 +29,13 @@ public class LoginController extends MasterController {
 	@FXML private PasswordField pwdInput;
 	@FXML private AnchorPane root;
 	private MediaPlayer mp;
+	private MediaPlayer player;
 	@FXML private void initialize() {
 		System.out.println("LoginController init");
 		this.startMusic("login.mp3");
+		this.pwdInput.addEventHandler(KeyEvent.KEY_PRESSED,e->{
+			if(e.getCode() == KeyCode.ENTER) this.loginProcess();
+		});
 	}
 	
 	public void startMusic(String soundFile) {
@@ -41,6 +44,13 @@ public class LoginController extends MasterController {
 		this.mp.setAutoPlay(true);
 		this.mp.setCycleCount((int)Double.POSITIVE_INFINITY);
 		this.mp.setVolume(0.4);
+	}
+	
+	public void playMusic(String soundFile) {
+		Media md = new Media(Paths.get(soundFile).toUri().toString());
+		this.player = new MediaPlayer(md);
+		this.player.setVolume(0.8);
+		this.player.play();
 	}
 	
 	public void stopMusic() {
@@ -106,7 +116,7 @@ public class LoginController extends MasterController {
 				UserVO user = new UserVO();
 				user.setId(rs.getString("id").toString());
 				user.setName(rs.getString("name").toString());
-				user.setLevel(rs.getInt("max_score"));
+				user.setMaxScore(rs.getInt("max_score"));
 				return user;
 			}
 			return null;

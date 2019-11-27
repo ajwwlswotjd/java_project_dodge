@@ -29,8 +29,16 @@ public class MainController extends MasterController {
 		System.out.println("랭킹 보여주기 싫음 ㅋ");
 	}
 	
+	@FXML private void showHelp() {
+		
+	}
+	
 	@FXML private void startGame() {
+//		MainApp.app.slideOut(getRoot());
 		GameController gc = (GameController)MainApp.app.controllerMap.get("game");
+		LoginController lc = (LoginController)MainApp.app.controllerMap.get("login");
+		lc.stopMusic();
+		lc.startMusic("game_bgm.mp3");
 		gc.startGame();
 	}
 	

@@ -8,27 +8,27 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" styleClass="register_main" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.RegisterController">
+<AnchorPane prefHeight="768.0" prefWidth="1024.0" styleClass="register_main" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.RegisterController">
    <children>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="register_left" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="400.0" AnchorPane.topAnchor="0.0" />
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="register_right" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="400.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane prefHeight="768.0" prefWidth="512.0" styleClass="register_left" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="512.0" AnchorPane.topAnchor="0.0" />
+      <AnchorPane prefHeight="768.0" prefWidth="512.0" styleClass="register_right" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="512.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label fx:id="mainLbl" layoutX="39.0" layoutY="109.0" prefHeight="32.0" prefWidth="292.0" styleClass="register_main_txt" text="Registration Info">
+            <Label fx:id="mainLbl" layoutX="110.0" layoutY="140.0" prefHeight="32.0" prefWidth="292.0" styleClass="register_main_txt" text="Registration Info">
                <font>
                   <Font name="System Bold" size="40.0" />
                </font>
             </Label>
-            <TextField fx:id="idInput" layoutX="39.0" layoutY="189.0" prefHeight="40.0" prefWidth="300.0" promptText="ID" styleClass="register_input" />
-            <TextField fx:id="nameInput" layoutX="39.0" layoutY="250.0" prefHeight="40.0" prefWidth="300.0" promptText="Name" styleClass="register_input" />
-            <PasswordField fx:id="pwdInput1" layoutX="39.0" layoutY="313.0" prefHeight="40.0" prefWidth="300.0" promptText="Password" styleClass="register_input" />
-            <PasswordField fx:id="pwdInput2" layoutX="39.0" layoutY="372.0" prefHeight="40.0" prefWidth="300.0" promptText="Password Check" styleClass="register_input" />
-            <Button layoutX="39.0" layoutY="449.0" mnemonicParsing="false" onAction="#registerProcess" prefHeight="40.0" prefWidth="140.0" text="Submit">
+            <TextField fx:id="idInput" layoutX="110.0" layoutY="240.0" prefHeight="40.0" prefWidth="300.0" promptText="ID" styleClass="register_input" />
+            <TextField fx:id="nameInput" layoutX="110.0" layoutY="310.0" prefHeight="40.0" prefWidth="300.0" promptText="Name" styleClass="register_input" />
+            <PasswordField fx:id="pwdInput1" layoutX="110.0" layoutY="380.0" prefHeight="40.0" prefWidth="300.0" promptText="Password" styleClass="register_input" />
+            <PasswordField fx:id="pwdInput2" layoutX="110.0" layoutY="450.0" prefHeight="40.0" prefWidth="300.0" promptText="Password Check" styleClass="register_input" />
+            <Button layoutX="110.0" layoutY="510.0" mnemonicParsing="false" onAction="#registerProcess" prefHeight="40.0" prefWidth="140.0" text="Submit">
                <styleClass>
                   <String fx:value="register_btn" />
                   <String fx:value="register_submit_btn" />
                </styleClass>
             </Button>
-            <Button layoutX="200.0" layoutY="449.0" mnemonicParsing="false" onAction="#close" prefHeight="40.0" prefWidth="140.0" text="Cancel">
+            <Button layoutX="270.0" layoutY="510.0" mnemonicParsing="false" onAction="#close" prefHeight="40.0" prefWidth="140.0" text="Cancel">
                <styleClass>
                   <String fx:value="register_btn" />
                   <String fx:value="register_cancel_btn" />

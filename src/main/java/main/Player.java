@@ -3,26 +3,37 @@ package main;
 import java.util.HashMap;
 import java.util.Map;
 
-import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.ArcType;
 
 public class Player {
-	private double speed;
-	private double size; 
-	private double x;
-	private double y;
-	private Image img;
+	public double speed;
+	public double size; 
+	public double x;
+	public double y;
+	private double cvW;
+	private double cvH;
+	private Image leftImg;
+	private Image rightImg;
+	public boolean shell;
+	private boolean dir;
 	public Map<KeyCode, Boolean> keyMap = new HashMap<>(); 
 	
-	public Player(double speed, double size) {
+	public Player(double speed, double size,double w, double h) {
+		this.shell = false;
+		this.dir = true; // 오른쪽을 바라본다.
 		this.speed = speed;
 		this.size = size;
-		this.img = new Image("/imgs/player.png");
-		this.x = 400-this.size/2;
-		this.y = 300-this.size/2;
+		this.leftImg = new Image("/imgs/left.gif");
+		this.rightImg = new Image("/imgs/right.gif");
+		this.cvH = h;
+		this.cvW = w;
+		this.x = this.cvW/2-this.size/2;
+		this.y = this.cvH/2-this.size/2;
 		this.keyMap.put(KeyCode.LEFT, false);
 		this.keyMap.put(KeyCode.RIGHT, false);
 		this.keyMap.put(KeyCode.UP, false);
@@ -30,19 +41,38 @@ public class Player {
 	}
 	
 	public void render(GraphicsContext gc) {
-		if(this.keyMap.get(KeyCode.LEFT)) this.x-=this.speed;
-		if(this.keyMap.get(KeyCode.RIGHT)) this.x+=this.speed;
+		if(this.keyMap.get(KeyCode.LEFT)) {
+			this.x-=this.speed;
+			this.dir = false;
+		}
+		if(this.keyMap.get(KeyCode.RIGHT)) {
+			this.x+=this.speed;
+			this.dir = true;
+		}
 		if(this.keyMap.get(KeyCode.UP)) this.y-=this.speed;
 		if(this.keyMap.get(KeyCode.DOWN)) this.y+=this.speed;
 		this.replacOutScreen();
-		gc.drawImage(this.img, this.x, this.y,this.size,this.size);
+		gc.drawImage(this.dir ? this.rightImg : this.leftImg, this.x, this.y,this.size,this.size);
+		if(this.shell) {
+			gc.setStroke(Color.LIGHTGOLDENRODYELLOW);
+			gc.setLineWidth(3);
+			gc.strokeOval(this.x, this.y, this.size, this.size);
+		}
 	}
 	
 	public void replacOutScreen() {
-		if(this.y+this.size+15>=600) this.y=600-this.size-15; // 아래가 벽일때
+		if(this.y+this.size+15>=this.cvH) this.y=this.cvH-this.size-15; // 아래가 벽일때
 		if(this.y<=15) this.y=15; // 위쪽이 벽일때 
-		if(this.x+this.size+5>=800) this.x=800-this.size-5; // 오른쪽이 벽일떄 해결완료
+		if(this.x+this.size+5>=this.cvW) this.x=this.cvW-this.size-5; // 오른쪽이 벽일떄 해결완료
 		if(this.x<=5) this.x=5; // 왼쪽이 벽일떄 해결완료
+	}
+	
+	public boolean checkCollision(Bullet bullet) {
+		double dx = Math.abs(this.x-bullet.x)+5;
+		double dy = Math.abs(this.y-bullet.y)+10;
+		double distance = Math.sqrt(Math.pow(dx, 2)+Math.pow(dy,2));
+		double radiusSum = this.size/2+bullet.size/2;
+		return distance <= radiusSum; 
 	}
 	
 	public void KeyHandler(KeyEvent e) {

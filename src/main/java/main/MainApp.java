@@ -22,6 +22,7 @@ import views.GameController;
 import views.LoginController;
 import views.MainController;
 import views.MasterController;
+import views.MenuController;
 import views.RegisterController;
 
 public class MainApp extends Application {
@@ -30,6 +31,7 @@ public class MainApp extends Application {
 	public static MainApp app;
 	public Game game = null;
 	private StackPane mainPage;
+	private UserVO user;
 	public Map<String, MasterController> controllerMap = new HashMap<>();
 
 	@Override
@@ -64,8 +66,15 @@ public class MainApp extends Application {
 			RegisterController rc = registerLoader.getController();
 			rc.setRoot(registerPage);
 			this.controllerMap.put("register", rc);
+			
+			FXMLLoader menuLoader = new FXMLLoader();
+			menuLoader.setLocation(getClass().getResource("/views/MenuLayout.fxml"));
+			AnchorPane menuPage = menuLoader.load();
+			MenuController mnc = menuLoader.getController();
+			mnc.setRoot(menuPage);
+			this.controllerMap.put("menu", mnc);
 
-			Scene scene = new Scene(mainPage);
+			Scene scene = new Scene(mainPage,1024,768);
 			scene.addEventFilter(KeyEvent.KEY_PRESSED,e->{
 				if(game!=null) this.game.keyHandler(e);
 			});
@@ -76,17 +85,29 @@ public class MainApp extends Application {
 			primaryStage.setTitle("10122 정재성 닷지게임 (메이플스토리 Ver)");
 			primaryStage.getIcons().add(new Image("/imgs/ico.png"));
 			primaryStage.setScene(scene);
-			primaryStage.setMaxHeight(600);
-			primaryStage.setMaxWidth(800);
-			primaryStage.setMinHeight(600);
-			primaryStage.setMinWidth(800);
+			primaryStage.setWidth(1024);
+			primaryStage.setHeight(768);
+			primaryStage.setMaxHeight(768);
+			primaryStage.setMaxWidth(1024);
+			primaryStage.setMinHeight(768);
+			primaryStage.setMinWidth(1024);
 //			primaryStage.setResizable(false);
+//			primaryStage.setAlwaysOnTop(true);
+//			primaryStage.setOpacity(0.5);
 			scene.getStylesheets().add(getClass().getResource("./style.css").toExternalForm());
 			primaryStage.show();
 		} catch (Exception e) {
 			System.out.println("자바FX 로딩중 오류발생");
 			e.printStackTrace();
 		}
+	}
+	
+	public UserVO getUser() {
+		return this.user;
+	}
+	
+	public void setUser(UserVO us) {
+		this.user = us;
 	}
 
 	public static void main(String[] args) {
@@ -137,16 +158,17 @@ public class MainApp extends Application {
 	}
 	
 	public void setLoginInfo(UserVO user) {
+		this.user = user;
 		MainController mc = (MainController)this.controllerMap.get("main");
 		mc.setLoginInfo(user);
 	}
 
 	public void slideIn(String name) {
-		MasterController c = controllerMap.get(name); // ������ ��Ʈ�ѷ��� �ʿ��� ������.
+		MasterController c = controllerMap.get(name);
 		Pane pane = c.getRoot();
 		mainPage.getChildren().add(pane);
 
-		pane.setTranslateX(-800); // �������� ������ ����ȭ��Ų �� �ִϸ��̼� ����
+		pane.setTranslateX(-800);
 		pane.setOpacity(0);
 
 		Timeline timeline = new Timeline();

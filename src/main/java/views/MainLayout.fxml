@@ -7,9 +7,9 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.MainController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.MainController">
    <children>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="main_main_background">
+      <AnchorPane prefHeight="768.0" prefWidth="1024.0" styleClass="main_main_background">
          <children>
             <Label alignment="CENTER" layoutX="60.0" layoutY="140.0" styleClass="main_main_label" text="MapleStory Dodge Game" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="60.0">
                <font>
@@ -18,7 +18,8 @@
             </Label>
             <Button focusTraversable="false" layoutY="260.0" mnemonicParsing="false" onAction="#startGame" prefHeight="40.0" styleClass="main_btn" text="GAME START" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="250.0" />
             <Button focusTraversable="false" layoutY="330.0" mnemonicParsing="false" onAction="#showRank" prefHeight="40.0" styleClass="main_btn" text="RANKING" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="250.0" />
-            <Button focusTraversable="false" layoutY="400.0" mnemonicParsing="false" onAction="#logout" prefHeight="40.0" text="LOGOUT" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="250.0">
+            <Button focusTraversable="false" layoutY="400.0" mnemonicParsing="false" onAction="#showHelp" prefHeight="40.0" styleClass="main_btn" text="HELP" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="250.0" />
+            <Button focusTraversable="false" layoutY="470.0" mnemonicParsing="false" onAction="#logout" prefHeight="40.0" text="LOGOUT" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="250.0">
                <styleClass>
                   <String fx:value="main_btn" />
                   <String fx:value="main_btn_logout" />

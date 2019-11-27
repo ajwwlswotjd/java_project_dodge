@@ -6,45 +6,45 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="root" prefHeight="600.0" prefWidth="800.0" styleClass="bg_login" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.LoginController">
+<AnchorPane fx:id="root" prefHeight="768.0" prefWidth="1024.0" styleClass="bg_login" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.LoginController">
    <children>
-      <Button fx:id="loginBtn" layoutX="600.0" layoutY="239.0" mnemonicParsing="false" onAction="#loginProcess" prefHeight="35.0" prefWidth="75.0">
+      <Button fx:id="loginBtn" layoutX="760.0" layoutY="284.0" mnemonicParsing="false" onAction="#loginProcess" prefHeight="55.0" prefWidth="101.0">
          <styleClass>
             <String fx:value="btn_login" />
             <String fx:value="login_btn" />
          </styleClass>
       </Button>
-      <Button focusTraversable="false" layoutX="401.0" layoutY="354.0" mnemonicParsing="false" onAction="#goRegister" prefHeight="30.0" prefWidth="80.0">
+      <Button focusTraversable="false" layoutX="509.0" layoutY="434.0" mnemonicParsing="false" onAction="#goRegister" prefHeight="35.0" prefWidth="101.0">
          <styleClass>
             <String fx:value="login_btn" />
             <String fx:value="btn__go_register" />
          </styleClass>
       </Button>
-      <Button focusTraversable="false" layoutX="505.0" layoutY="355.0" mnemonicParsing="false" onAction="#goHomePage" prefHeight="25.0" prefWidth="75.0">
+      <Button focusTraversable="false" layoutX="638.0" layoutY="434.0" mnemonicParsing="false" onAction="#goHomePage" prefHeight="35.0" prefWidth="93.0">
          <styleClass>
             <String fx:value="login_btn" />
             <String fx:value=".btn_homepage" />
          </styleClass>
       </Button>
-      <Button focusTraversable="false" layoutX="608.0" layoutY="354.0" mnemonicParsing="false" onAction="#shutdown" prefHeight="28.0" prefWidth="60.0">
+      <Button focusTraversable="false" layoutX="767.0" layoutY="428.0" mnemonicParsing="false" onAction="#shutdown" prefHeight="35.0" prefWidth="75.0">
          <styleClass>
             <String fx:value="login_btn" />
             <String fx:value="btn_shutdown" />
          </styleClass>
       </Button>
-      <Button focusTraversable="false" layoutX="556.0" layoutY="300.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="55.0">
+      <Button focusTraversable="false" layoutX="701.0" layoutY="366.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0">
          <styleClass>
             <String fx:value="login_btn" />
             <String fx:value="btn_go_find_email" />
          </styleClass>
       </Button>
-      <Button focusTraversable="false" layoutX="625.0" layoutY="300.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="50.0">
+      <Button focusTraversable="false" layoutX="801.0" layoutY="366.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="59.0">
          <styleClass>
             <String fx:value="login_btn" />
             <String fx:value="btn_find_pwd" />
          </styleClass>
       </Button>
-      <TextField fx:id="idInput" layoutX="441.0" layoutY="233.0" prefHeight="23.0" prefWidth="145.0" styleClass="login_input" text="admin" />
-      <PasswordField fx:id="pwdInput" layoutX="441.0" layoutY="264.0" prefHeight="15.0" prefWidth="145.0" styleClass="login_input" text="1234" />
+      <TextField fx:id="idInput" layoutX="554.0" layoutY="282.0" prefHeight="31.0" prefWidth="190.0" styleClass="login_input" text="admin" />
+      <PasswordField fx:id="pwdInput" layoutX="554.0" layoutY="318.0" prefHeight="31.0" prefWidth="190.0" styleClass="login_input" text="1234" />
    </children>
 </AnchorPane>

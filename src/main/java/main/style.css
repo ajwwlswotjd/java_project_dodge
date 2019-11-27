@@ -3,7 +3,8 @@
 }
 
 .bg_login {
-	-fx-background-image : url("/imgs/bg_login.png");	
+	-fx-background-image : url("/imgs/bg_login.png");
+	-fx-background-size : 100% 100%;	
 }
 
 .login_btn {
@@ -21,12 +22,12 @@
 	-fx-text-fill : #ffff;
 }
 .register_main {
-	-fx-background-color : #fff;	
+	-fx-background-color : #000;	
 }
 
 .register_main_txt {
 	-fx-font-size : 30px;
-	-fx-text-fill : #fff;
+	-fx-text-fill : #000;
 	-fx-font-weight : lighter;
 }
 
@@ -107,6 +108,22 @@
 	-fx-background-color : #000;
 }
 
+.menu_background {
+	-fx-background-color : #000a;
+}
 
+.menu_inner {
+	-fx-background-image : url("/imgs/bd.png");
+	-fx-background-size : 100% 100%;
+	-fx-border-radius : 10px;
+	-fx-background-radius : 10px;
+}
 
+.menu_btn {
+	-fx-background-color : transparent;
+	-fx-cursor : hand;
+}
 
+.menu_btn:hover {
+	-fx-background-color : #fff3;
+}
