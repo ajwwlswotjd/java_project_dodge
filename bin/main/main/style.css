@@ -113,10 +113,8 @@
 }
 
 .menu_inner {
-	-fx-background-image : url("/imgs/bd.png");
+	-fx-background-image : url("/imgs/bd.PNG");
 	-fx-background-size : 100% 100%;
-	-fx-border-radius : 10px;
-	-fx-background-radius : 10px;
 }
 
 .menu_btn {

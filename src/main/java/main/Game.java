@@ -97,7 +97,17 @@ public class Game {
 			int rand = (int) (Math.random() * 100 + 1);
 			if (rand <= 5) { // 5%확률이 성공하면
 				rand = (int) (Math.random() * 3);
-				Image img = new Image("/imgs/" + (rand == 0 ? "fast" : rand == 1 ? "shell" : "coupon") + ".png");
+				String imgSrc = "/imgs/" + (rand == 0 ? "fast" : rand == 1 ? "shell" : "coupon") + ".png";
+				System.out.println(imgSrc);
+//				Image img = new Image(imgSrc);
+				Image img;
+				if(rand==0) {
+					img = new Image("/imgs/fast.PNG");
+				}else if(rand==1) {
+					img = new Image("/imgs/shell.PNG");
+				}else {
+					img = new Image("/imgs/coupon.png");
+				}
 				Item item = new Item(img, this.width, this.height, this.itemSize, rand);
 				this.itemList.add(item);
 				System.out.println(item.getPost());

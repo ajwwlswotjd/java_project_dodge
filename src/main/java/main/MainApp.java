@@ -110,7 +110,7 @@ public class MainApp extends Application {
 //			primaryStage.setResizable(false);
 //			primaryStage.setAlwaysOnTop(true);
 //			primaryStage.setOpacity(0.5);
-			scene.getStylesheets().add(getClass().getResource("./style.css").toExternalForm());
+			scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
 			primaryStage.show();
 		} catch (Exception e) {
 			System.out.println("자바FX 로딩중 오류발생");
