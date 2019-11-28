@@ -127,3 +127,32 @@
 .menu_btn:hover {
 	-fx-background-color : #fff3;
 }
+
+.help_background {
+	-fx-background-image : url("/imgs/help_bg.png");
+	-fx-background-size : 100% 100%;	
+}
+
+.help_close {
+	-fx-border-radius : 5px;
+	-fx-background-radius : 5px;
+	-fx-background-color : #007bff;
+	-fx-text-fill  : #fff;
+	-fx-font-size : 20px;
+	-fx-font-weight : 700;
+	-fx-cursor : hand;
+	-fx-border-color : #007bff;
+}
+
+.help_close:hover {
+	-fx-background-color: #0069d9;
+    -fx-border-color: #0062cc;
+}
+
+.rank_background {
+	-fx-background-color : #fff;
+}
+
+.rank_top_label {
+	-fx-font-weight : 700;
+}

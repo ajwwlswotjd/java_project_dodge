@@ -22,6 +22,13 @@ public class RegisterController extends MasterController {
 	@FXML private void initialize() {
 		System.out.println("RegisterController init");
 	}
+	
+	public void clear() {
+		this.idInput.setText("");
+		this.nameInput.setText("");
+		this.pwdInput1.setText("");
+		this.pwdInput2.setText("");
+	}
 
 	@FXML private void registerProcess() {
 		
@@ -44,7 +51,7 @@ public class RegisterController extends MasterController {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		String sqlExist = "SELECT * FROM `dd_user` WHERE `id` = ?";
-		String sqlInsert = "INSERT INTO `dd_user`(`num`,`id`,`password`,`name`) VALUES (null,?,PASSWORD(?),?)";
+		String sqlInsert = "INSERT INTO `dd_user`(`num`,`id`,`password`,`name`,`max_score`) VALUES (null,?,PASSWORD(?),?,?)";
 		try {
 			pstmt = con.prepareStatement(sqlExist);
 			pstmt.setString(1, id);
@@ -61,13 +68,14 @@ public class RegisterController extends MasterController {
 			pstmt.setString(1, id);
 			pstmt.setString(2, pwd1);
 			pstmt.setString(3, name);
+			pstmt.setInt(4,0);
 			if(pstmt.executeUpdate() != 1) {
 				Util.showAlert("에러","올바르지 않은 값이 입력되었습니다.",AlertType.ERROR);
 				return;
 			}
 			
 			Util.showAlert("회원가입 완료","회원가입이 완료되었습니다. 감사합니다.",AlertType.INFORMATION);
-			MainApp.app.slideOut(getRoot());
+			MainApp.app.fadeOut(getRoot());
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("데이터베이스 연결중 오류발생(RegisterController)");

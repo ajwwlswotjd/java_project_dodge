@@ -26,11 +26,13 @@ public class MainController extends MasterController {
 	}
 	
 	@FXML private void showRank() {
-		System.out.println("랭킹 보여주기 싫음 ㅋ");
+		MainApp.app.fadeIn("rank");
+		RankController rc = (RankController)MainApp.app.controllerMap.get("rank");
+		rc.reload();
 	}
 	
 	@FXML private void showHelp() {
-		
+		MainApp.app.fadeIn("help");
 	}
 	
 	@FXML private void startGame() {

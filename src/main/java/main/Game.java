@@ -36,6 +36,7 @@ public class Game {
 	private double newBullet = 0;
 	public boolean gameover;
 	private int scoreValue;
+	private boolean playerShell;
 	public int score;
 	private Image img;
 
@@ -45,6 +46,7 @@ public class Game {
 		this.img = new Image("/imgs/ground1.png");
 		this.bulletList = new ArrayList<Bullet>();
 		this.itemList = new ArrayList<Item>();
+		this.playerShell = false;
 		this.width = canvas.getWidth();
 		this.height = canvas.getHeight();
 		this.bulletSize = 20;
@@ -100,6 +102,10 @@ public class Game {
 				this.itemList.add(item);
 				System.out.println(item.getPost());
 			}
+			if(this.playerShell) {
+				this.player.shell = false;
+				this.playerShell = false;
+			}
 		}
 	}
 
@@ -126,13 +132,10 @@ public class Game {
 			if (item.checkCol(this.player)) { // 아이템을 먹음
 				int status = item.getStatus();
 				if (status == 0) { // 헤이스트
-					System.out.println("헤이스트 먹음");
 					this.player.speed += 2;
 				} else if (status == 1) { // 쉘
-					System.out.println("쉘 먹음");
 					this.player.shell = true;
 				} else if (status == 2) { // 쿠폰
-					System.out.println("쿠폰 먹음");
 					this.scoreValue++;
 				} else {
 					System.out.println("이게 나오면 큰일난겁니다. (Game.java)");
@@ -146,9 +149,10 @@ public class Game {
 		for (int i = 0; i < size; i++) {
 			Bullet bullet = this.bulletList.get(i);
 			bullet.render(this.gc);
-			if (this.player.checkCollision(bullet)) { // 충돌감지
+			if (this.player.checkCollision(bullet) && !bullet.shellPass) { // 충돌감지
 				if (this.player.shell) {
-					this.player.shell = false;
+					this.playerShell=true;
+					bullet.shellPass = true;
 					return;
 				}
 				this.setGameOver();

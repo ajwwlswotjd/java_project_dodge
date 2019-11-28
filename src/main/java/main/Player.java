@@ -53,11 +53,9 @@ public class Player {
 		if(this.keyMap.get(KeyCode.DOWN)) this.y+=this.speed;
 		this.replacOutScreen();
 		gc.drawImage(this.dir ? this.rightImg : this.leftImg, this.x, this.y,this.size,this.size);
-		if(this.shell) {
-			gc.setStroke(Color.LIGHTGOLDENRODYELLOW);
-			gc.setLineWidth(3);
-			gc.strokeOval(this.x, this.y, this.size, this.size);
-		}
+		gc.setLineWidth(this.shell ? 3 : 1);
+		gc.setStroke(this.shell ? Color.LIGHTGOLDENRODYELLOW : Color.WHITE);
+		gc.strokeOval(this.x, this.y, this.size, this.size);
 	}
 	
 	public void replacOutScreen() {
@@ -68,10 +66,11 @@ public class Player {
 	}
 	
 	public boolean checkCollision(Bullet bullet) {
-		double dx = Math.abs(this.x-bullet.x)+5;
-		double dy = Math.abs(this.y-bullet.y)+10;
+		double dx = Math.abs(this.x-bullet.x);
+		double dy = Math.abs(this.y-bullet.y);
 		double distance = Math.sqrt(Math.pow(dx, 2)+Math.pow(dy,2));
-		double radiusSum = this.size/2+bullet.size/2;
+		double radiusSum = (this.size/2+bullet.size/2);
+		if(this.y <= bullet.y) distance+=15;
 		return distance <= radiusSum; 
 	}
 	

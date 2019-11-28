@@ -14,6 +14,7 @@ public class Bullet {
 	public double targetX;
 	public double targetY;
 	private double disX;
+	public boolean shellPass;
 	private double disY;
 	private double time;
 	private Image img;
@@ -25,6 +26,7 @@ public class Bullet {
 	public Bullet(double size,double speed,double w,double h) {
 		this.img = new Image("/imgs/shuricken.gif");
 		this.size = size;
+		this.shellPass = false;
 		this.speed = speed;
 		this.canvasWidth = w;
 		this.canvasHeight = h;

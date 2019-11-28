@@ -19,10 +19,12 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import views.GameController;
+import views.HelpController;
 import views.LoginController;
 import views.MainController;
 import views.MasterController;
 import views.MenuController;
+import views.RankController;
 import views.RegisterController;
 
 public class MainApp extends Application {
@@ -73,6 +75,20 @@ public class MainApp extends Application {
 			MenuController mnc = menuLoader.getController();
 			mnc.setRoot(menuPage);
 			this.controllerMap.put("menu", mnc);
+			
+			FXMLLoader helpLoader = new FXMLLoader();
+			helpLoader.setLocation(getClass().getResource("/views/HelpLayout.fxml"));
+			AnchorPane helpPage = helpLoader.load();
+			HelpController hc = helpLoader.getController();
+			hc.setRoot(helpPage);
+			this.controllerMap.put("help", hc);
+			
+			FXMLLoader rankLoader = new FXMLLoader();
+			rankLoader.setLocation(getClass().getResource("/views/RankLayout.fxml"));
+			AnchorPane rankPage = rankLoader.load();
+			RankController rnc = rankLoader.getController();
+			rnc.setRoot(rankPage);
+			this.controllerMap.put("rank", rnc);
 
 			Scene scene = new Scene(mainPage,1024,768);
 			scene.addEventFilter(KeyEvent.KEY_PRESSED,e->{

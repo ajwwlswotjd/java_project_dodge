@@ -44,7 +44,7 @@
             <String fx:value="btn_find_pwd" />
          </styleClass>
       </Button>
-      <TextField fx:id="idInput" layoutX="554.0" layoutY="282.0" prefHeight="31.0" prefWidth="190.0" styleClass="login_input" text="admin" />
-      <PasswordField fx:id="pwdInput" layoutX="554.0" layoutY="318.0" prefHeight="31.0" prefWidth="190.0" styleClass="login_input" text="1234" />
+      <TextField fx:id="idInput" layoutX="554.0" layoutY="282.0" prefHeight="31.0" prefWidth="190.0" promptText="ID" styleClass="login_input" />
+      <PasswordField fx:id="pwdInput" layoutX="554.0" layoutY="318.0" prefHeight="31.0" prefWidth="190.0" promptText="password" styleClass="login_input" />
    </children>
 </AnchorPane>

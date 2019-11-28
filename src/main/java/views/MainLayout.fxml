@@ -11,22 +11,22 @@
    <children>
       <AnchorPane prefHeight="768.0" prefWidth="1024.0" styleClass="main_main_background">
          <children>
-            <Label alignment="CENTER" layoutX="60.0" layoutY="140.0" styleClass="main_main_label" text="MapleStory Dodge Game" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="60.0">
+            <Label alignment="CENTER" layoutX="60.0" layoutY="165.0" styleClass="main_main_label" text="MapleStory Dodge Game" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="60.0">
                <font>
                   <Font size="45.0" />
                </font>
             </Label>
-            <Button focusTraversable="false" layoutY="260.0" mnemonicParsing="false" onAction="#startGame" prefHeight="40.0" styleClass="main_btn" text="GAME START" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="250.0" />
-            <Button focusTraversable="false" layoutY="330.0" mnemonicParsing="false" onAction="#showRank" prefHeight="40.0" styleClass="main_btn" text="RANKING" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="250.0" />
-            <Button focusTraversable="false" layoutY="400.0" mnemonicParsing="false" onAction="#showHelp" prefHeight="40.0" styleClass="main_btn" text="HELP" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="250.0" />
-            <Button focusTraversable="false" layoutY="470.0" mnemonicParsing="false" onAction="#logout" prefHeight="40.0" text="LOGOUT" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="250.0">
+            <Button focusTraversable="false" layoutY="300.0" mnemonicParsing="false" onAction="#startGame" prefHeight="40.0" styleClass="main_btn" text="GAME START" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="250.0" />
+            <Button focusTraversable="false" layoutY="370.0" mnemonicParsing="false" onAction="#showRank" prefHeight="40.0" styleClass="main_btn" text="RANKING" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="250.0" />
+            <Button focusTraversable="false" layoutY="440.0" mnemonicParsing="false" onAction="#showHelp" prefHeight="40.0" styleClass="main_btn" text="HELP" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="250.0" />
+            <Button focusTraversable="false" layoutY="510.0" mnemonicParsing="false" onAction="#logout" prefHeight="40.0" text="LOGOUT" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="250.0">
                <styleClass>
                   <String fx:value="main_btn" />
                   <String fx:value="main_btn_logout" />
                </styleClass>
             </Button>
             <Label styleClass="main_label_copyright" text="© Copyright wotjd All right Reserved" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0" />
-            <Label fx:id="userLbl" alignment="CENTER" layoutY="220.0" styleClass="main_user_label" text="LV.36 정재성(ajwwlswotjd)" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="250.0">
+            <Label fx:id="userLbl" alignment="CENTER" layoutY="260.0" styleClass="main_user_label" text="LV.36 정재성(ajwwlswotjd)" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="250.0">
                <font>
                   <Font size="15.0" />
                </font>
